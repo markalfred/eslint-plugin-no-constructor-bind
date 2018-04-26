@@ -1,0 +1,22 @@
+{
+  "name": "eslint-no-constructor-bind",
+  "version": "1.0.0",
+  "description": "Prefer class arrow methods to binding in the constructor",
+  "main": "lib/rules/no-constructor-bind.js",
+  "directories": {
+    "doc": "docs",
+    "lib": "lib",
+    "test": "tests"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "babel-eslint": "^8.2.3",
+    "eslint": "^4.19.1"
+  },
+  "scripts": {
+    "test": "node tests/lib/rules/no-constructor-bind.js"
+  },
+  "keywords": ["eslint", "rule"],
+  "author": "Mark Battersby",
+  "license": "ISC"
+}
