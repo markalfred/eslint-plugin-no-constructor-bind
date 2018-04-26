@@ -25,26 +25,14 @@ var error = {
 var ruleTester = new RuleTester()
 ruleTester.run('no-constructor-bind', rule, {
   valid: [
-    `class myClass {
-      myFunction = () => {}
-    }`,
-
-    `class myClass {
-      constructor() {
-        this.myFunction = this.myFunction.bind({ foo: "bar" })
-      }
-    }`
+    'class myClass {myFunction = () => {} }',
+    'class myClass {constructor() {this.myFunction = this.myFunction.bind({ foo: "bar" }) } }'
   ],
 
   invalid: [
     {
-      code: `
-        class myClass {
-          constructor() {
-            this.myFunction = this.myFunction.bind(this)
-          }
-        }
-      `,
+      code:
+        'class myClass { constructor() { this.myFunction = this.myFunction.bind(this) } }',
       errors: [error]
     }
   ]
