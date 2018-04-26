@@ -1,22 +1,28 @@
 {
-  "name": "eslint-no-constructor-bind",
+  "name": "eslint-plugin-no-constructor-bind",
   "version": "1.0.0",
   "description": "Prefer class arrow methods to binding in the constructor",
-  "main": "lib/rules/no-constructor-bind.js",
+  "main": "lib/index.js",
   "directories": {
     "doc": "docs",
     "lib": "lib",
     "test": "tests"
   },
-  "dependencies": {},
+  "dependencies": {
+    "requireindex": "~1.1.0"
+  },
   "devDependencies": {
     "babel-eslint": "^8.2.3",
-    "eslint": "^4.19.1"
+    "eslint": "^4.19.1",
+    "mocha": "^3.1.2"
   },
   "scripts": {
-    "test": "node tests/lib/rules/no-constructor-bind.js"
+    "test": "mocha tests --recursive"
   },
-  "keywords": ["eslint", "rule"],
+  "keywords": ["eslint", "eslintplugin", "eslint-plugin"],
+  "engines": {
+    "node": ">=0.10.0"
+  },
   "author": "Mark Battersby",
   "license": "ISC"
 }
