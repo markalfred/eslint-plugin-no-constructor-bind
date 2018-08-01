@@ -3,6 +3,13 @@
   "version": "1.0.0",
   "description": "Prefer class arrow methods to binding in the constructor",
   "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/markalfred/eslint-plugin-no-constructor-bind.git"
+  },
+  "bugs": {
+    "url": "https://github.com/markalfred/eslint-plugin-no-constructor-bind/issues"
+  },
   "directories": {
     "doc": "docs",
     "lib": "lib",
