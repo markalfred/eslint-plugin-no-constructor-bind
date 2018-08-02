@@ -19,7 +19,7 @@ RuleTester.setDefaultConfig({ parser: 'babel-eslint' })
 
 var error = {
   type: 'AssignmentExpression',
-  message: 'Use arrow methods instead of bind.'
+  message: 'use arrow functions instead of binding in the constructor'
 }
 
 var ruleTester = new RuleTester()

@@ -1,4 +1,4 @@
-# Use class arrow methods instead of binding in the constructor (no-constructor-bind)
+# Use class arrow functions instead of binding in the constructor (no-constructor-bind)
 
 Binding functions to `this` in the constructor is annoying and verbose. Let's use arrow functions instead.
 
@@ -31,4 +31,4 @@ class myClass {
 
 ## When Not To Use It
 
-If you dislike arrow methods or if you don't use ES7 proposed syntax.
+If you dislike arrow functions or if you don't use ES7 proposed syntax.
