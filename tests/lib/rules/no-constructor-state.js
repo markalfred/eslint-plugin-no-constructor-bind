@@ -47,6 +47,27 @@ ruleTester.run('no-constructor-state', rule, {
         `class firstClass { constructor() {  } state = { foo: "bar" } }
          class secondClass { constructor() {  } state = { foo: "bar" } }`,
       errors: [error, error]
+    },
+    {
+      // Infers that state should be separated by a newline.
+      code:
+        `class myClass {
+          constructor() {
+            super()
+            this.state = { foo: "bar" }
+          }
+        }`,
+
+      output:
+        `class myClass {
+          constructor() {
+            super()
+            ` + `
+          }
+
+          state = { foo: "bar" }
+        }`,
+      errors: [error]
     }
   ]
 })
