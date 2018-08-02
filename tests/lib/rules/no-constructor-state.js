@@ -35,7 +35,7 @@ ruleTester.run('no-constructor-state', rule, {
       code:
         'class myClass { constructor() { this.state = { foo: "bar" } } }',
       output:
-        'class myClass { constructor() {  } }',
+        'class myClass { constructor() {  } state = { foo: "bar" } }',
       errors: [error]
     },
     {
@@ -44,8 +44,8 @@ ruleTester.run('no-constructor-state', rule, {
         `class firstClass { constructor() { this.state = { foo: "bar" } } }
          class secondClass { constructor() { this.state = { foo: "bar" } } }`,
       output:
-        `class firstClass { constructor() {  } }
-         class secondClass { constructor() {  } }`,
+        `class firstClass { constructor() {  } state = { foo: "bar" } }
+         class secondClass { constructor() {  } state = { foo: "bar" } }`,
       errors: [error, error]
     }
   ]
