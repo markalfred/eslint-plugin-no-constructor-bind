@@ -1,6 +1,10 @@
 # eslint-plugin-no-constructor-bind
 
-prefer class arrows to constructor binds
+Prefer class properties to equivalent setup steps taken in a class' constructor method.
+
+Use `no-constructor-bind` to eliminate bound functions in your constructor.
+Use `no-constructor-state` to eliminate initial state setting in your constructor.
+Doing this, most likely you'll be able to use ESLint's builtin `no-useless-constructor` to remove many constructors in your app.
 
 ## Installation
 
@@ -33,7 +37,8 @@ Then configure the rules you want to use under the rules section.
 ```json
 {
   "rules": {
-    "no-constructor-bind/no-constructor-bind": 2
+    "no-constructor-bind/no-constructor-bind": 2,
+    "no-constructor-bind/no-constructor-state": 2
   }
 }
 ```
@@ -41,3 +46,4 @@ Then configure the rules you want to use under the rules section.
 ## Supported Rules
 
 * no-constructor-bind (:wrench:)
+* no-constructor-state (:wrench:)
