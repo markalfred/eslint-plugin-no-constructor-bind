@@ -40,4 +40,4 @@ Then configure the rules you want to use under the rules section.
 
 ## Supported Rules
 
-* no-constructor-bind
+* no-constructor-bind (:wrench:)
