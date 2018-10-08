@@ -45,5 +45,5 @@ Then configure the rules you want to use under the rules section.
 
 ## Supported Rules
 
-* no-constructor-bind (:wrench:)
-* no-constructor-state (:wrench:)
+* no-constructor-bind (:wrench:) — Use class arrow functions instead of binding in the constructor
+* no-constructor-state (:wrench:) — Use class property instead of setting initial state in the constructor
