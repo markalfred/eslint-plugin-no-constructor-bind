@@ -2,6 +2,21 @@
 
 Prefer class properties to equivalent setup steps taken in a class' constructor method.
 
+```js
+// Bad:
+class User {
+  constructor() {
+    this.greet = this.greet.bind(this)
+  }
+  greet() { return 'Hello' }
+}
+
+// Good:
+class User {
+  greet = () => 'hello'
+}
+```
+
 Use `no-constructor-bind` to eliminate bound functions in your constructor.
 Use `no-constructor-state` to eliminate initial state setting in your constructor.
 Doing this, most likely you'll be able to use ESLint's builtin `no-useless-constructor` to remove many constructors in your app.
