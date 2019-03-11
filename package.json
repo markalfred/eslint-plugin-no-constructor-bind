@@ -19,9 +19,9 @@
     "requireindex": "~1.1.0"
   },
   "devDependencies": {
-    "babel-eslint": "^8.2.6",
-    "eslint": "^4.19.1",
-    "mocha": "^5.2.0"
+    "babel-eslint": "^10.0.0",
+    "eslint": "^5.0.0",
+    "mocha": "^6.0.0"
   },
   "scripts": {
     "test": "mocha tests --recursive"
