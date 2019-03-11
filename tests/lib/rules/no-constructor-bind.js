@@ -26,8 +26,14 @@ var ruleTester = new RuleTester()
 ruleTester.run('no-constructor-bind', rule, {
   valid: [
     'class myClass { myFunction = () => {} }',
+    'myClass = class { myFunction = () => {} }',
+
     'class myClass { constructor() { this.myFunction = this.myFunction.bind({ foo: "bar" }) } }',
-    'class firstClass { myFunction = () => {} } class secondClass { myFunction = () => {} }'
+    'myClass = class { constructor() { this.myFunction = this.myFunction.bind({ foo: "bar" }) } }',
+
+    'class firstClass { myFunction = () => {} } class secondClass { myFunction = () => {} }',
+    'firstClass = class { myFunction = () => {} }; class secondClass { myFunction = () => {} }',
+    'firstClass = class { myFunction = () => {} }; secondClass = class { myFunction = () => {} }'
   ],
 
   invalid: [
@@ -36,6 +42,13 @@ ruleTester.run('no-constructor-bind', rule, {
         'class myClass { constructor() { this.myFunction = this.myFunction.bind(this) } myFunction() {} }',
       output:
         'class myClass { constructor() {  } myFunction = () => {} }',
+      errors: [error]
+    },
+    {
+      code:
+        'myClass = class { constructor() { this.myFunction = this.myFunction.bind(this) } myFunction() {} }',
+      output:
+        'myClass = class { constructor() {  } myFunction = () => {} }',
       errors: [error]
     },
     {
