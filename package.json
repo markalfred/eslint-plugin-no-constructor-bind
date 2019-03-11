@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-no-constructor-bind",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Prefer class arrow methods to binding in the constructor",
   "main": "lib/index.js",
   "repository": {
