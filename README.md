@@ -1,5 +1,7 @@
 # eslint-plugin-no-constructor-bind
 
+[![Build Status](https://travis-ci.org/markalfred/eslint-plugin-no-constructor-bind.svg?branch=master)](https://travis-ci.org/markalfred/eslint-plugin-no-constructor-bind)
+
 Prefer class properties to equivalent setup steps taken in a class' constructor method.
 
 ```js
