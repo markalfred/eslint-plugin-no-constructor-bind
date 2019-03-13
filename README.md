@@ -1,6 +1,7 @@
 # eslint-plugin-no-constructor-bind
 
 [![Build Status](https://travis-ci.org/markalfred/eslint-plugin-no-constructor-bind.svg?branch=master)](https://travis-ci.org/markalfred/eslint-plugin-no-constructor-bind)
+[![Coverage Status](https://coveralls.io/repos/github/markalfred/eslint-plugin-no-constructor-bind/badge.svg?branch=master)](https://coveralls.io/github/markalfred/eslint-plugin-no-constructor-bind?branch=master)
 
 Prefer class properties to equivalent setup steps taken in a class' constructor method.
 
