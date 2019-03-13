@@ -30,6 +30,10 @@ ruleTester.run('no-constructor-state', rule, {
     'class myClass { constructor() { this.notState = { foo: "bar" } } state = { foo: "bar" } }',
     // Shouldn't flag on complex state creation in constructor
     'class myClass { constructor() { const bar = 1; this.state = { foo: bar } } }',
+    'class myClass { constructor(props) { this.state = { ...props } } }',
+    'class myClass { constructor(props) { this.state = [ ...props ] } }',
+    'class myClass { constructor(props) { this.state = { foo: { ...props } } } }',
+    'class myClass { constructor(props) { this.state = { foo: [ ...props ] } } }',
     'class myClass { constructor(props) { this.state = { foo: props.foo } } }',
     'class myClass { constructor(props) { this.state = { foo: _.defaults(props, { bar: "baz" }) } } }'
   ],
