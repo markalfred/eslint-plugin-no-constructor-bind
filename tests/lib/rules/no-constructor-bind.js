@@ -52,6 +52,13 @@ ruleTester.run('no-constructor-bind', rule, {
       errors: [error]
     },
     {
+      code:
+        'class myClass { constructor() { this.myFunction = this.myFunction.bind(this) } myFunction(arg1) {} }',
+      output:
+        'class myClass { constructor() {  } myFunction = (arg1) => {} }',
+      errors: [error]
+    },
+    {
       // Method cannot be converted to arrow function because it doesn't exist. So bind should not be removed.
       code:
         'class myClass { constructor() { this.myFunction = this.myFunction.bind(this) } }',
@@ -76,6 +83,28 @@ ruleTester.run('no-constructor-bind', rule, {
         `class firstClass { constructor() {  } myFunction = () => {} }
          class secondClass { constructor() {  } myFunction = () => {} }`,
       errors: [error, error]
+    },
+    // Should handle multi-line params
+    {
+      code:
+        `class myClass {
+          constructor() { this.myFunction = this.myFunction.bind(this) }
+          myFunction(
+            arg1,
+            arg2,
+            arg3
+          ) {}
+        }`,
+      output:
+        `class myClass {
+          constructor() {  }
+          myFunction = (
+            arg1,
+            arg2,
+            arg3
+          ) => {}
+        }`,
+      errors: [error]
     }
   ]
 })
