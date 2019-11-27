@@ -56,8 +56,8 @@ Then configure the rules you want to use under the rules section.
 ```json
 {
   "rules": {
-    "no-constructor-bind/no-constructor-bind": 2,
-    "no-constructor-bind/no-constructor-state": 2
+    "no-constructor-bind/no-constructor-bind": "error",
+    "no-constructor-bind/no-constructor-state": "error"
   }
 }
 ```
