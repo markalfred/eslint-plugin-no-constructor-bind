@@ -11,7 +11,7 @@
 var rule = require('../../../lib/rules/no-constructor-state'),
   RuleTester = require('eslint').RuleTester
 
-RuleTester.setDefaultConfig({ parser: 'babel-eslint' })
+RuleTester.setDefaultConfig({ parser: require.resolve('babel-eslint') })
 
 //------------------------------------------------------------------------------
 // Tests
