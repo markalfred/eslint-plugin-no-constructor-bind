@@ -59,6 +59,13 @@ ruleTester.run('no-constructor-bind', rule, {
       errors: [error]
     },
     {
+      code:
+        'class myClass { constructor() { this.myFunction = this.myFunction.bind(this) } async myFunction() {} }',
+      output:
+        'class myClass { constructor() {  } myFunction = async () => {} }',
+      errors: [error]
+    },
+    {
       // Method cannot be converted to arrow function because it doesn't exist. So bind should not be removed.
       code:
         'class myClass { constructor() { this.myFunction = this.myFunction.bind(this) } }',
