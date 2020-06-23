@@ -91,6 +91,14 @@ ruleTester.run('no-constructor-bind', rule, {
          class secondClass { constructor() {  } myFunction = () => {} }`,
       errors: [error, error]
     },
+    {
+      // Should handle semicolons.
+      code:
+        'class myClass { constructor() { this.myFunction = this.myFunction.bind(this); }; myFunction() {}; };',
+      output:
+        'class myClass { constructor() {  }; myFunction = () => {}; };',
+      errors: [error]
+    },
     // Should handle multi-line params
     {
       code:
