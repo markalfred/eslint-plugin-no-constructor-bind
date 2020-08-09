@@ -33,7 +33,10 @@ ruleTester.run('no-constructor-bind', rule, {
 
     'class firstClass { myFunction = () => {} } class secondClass { myFunction = () => {} }',
     'firstClass = class { myFunction = () => {} }; class secondClass { myFunction = () => {} }',
-    'firstClass = class { myFunction = () => {} }; secondClass = class { myFunction = () => {} }'
+    'firstClass = class { myFunction = () => {} }; secondClass = class { myFunction = () => {} }',
+
+    'class myClass { constructor() { this.myFn = this.fns.myFn.bind(this) } fns = { myFn: function() {} } }',
+    'class myClass { constructor() { this.myFunction = myFunction.bind(this) } }'
   ],
 
   invalid: [
