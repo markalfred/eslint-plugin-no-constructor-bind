@@ -36,7 +36,9 @@ ruleTester.run('no-constructor-bind', rule, {
     'firstClass = class { myFunction = () => {} }; secondClass = class { myFunction = () => {} }',
 
     'class myClass { constructor() { this.myFn = this.fns.myFn.bind(this) } fns = { myFn: function() {} } }',
-    'class myClass { constructor() { this.myFunction = myFunction.bind(this) } }'
+    'class myClass { constructor() { this.myFunction = myFunction.bind(this) } }',
+
+    'class myClass { myFunction() { return class { constructor() {} } } }'
   ],
 
   invalid: [
@@ -122,6 +124,14 @@ ruleTester.run('no-constructor-bind', rule, {
             arg3
           ) => {}
         }`,
+      errors: [error]
+    },
+    {
+      // Should handle anonymous classes
+      code:
+        'class myClass { constructor() { return class { constructor() { this.myFunction = this.myFunction.bind(this) } myFunction() {} } } }',
+      output:
+        'class myClass { constructor() { return class { constructor() {  } myFunction = () => {} } } }',
       errors: [error]
     }
   ]
